@@ -114,8 +114,8 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
 /* aria2 download manager */
 #define DOWNLOAD(d, r) { \
 	.v = (char *[]){ "/bin/sh", "-c", \
-		"if [ ! -d $HOME/downloads/surf ]; then mkdir -p $HOME/downloads/surf; fi;"\
-		"st -T 'Download Status' -e /bin/sh -c \"aria2c -c -x16 --dir=$HOME/dl -U '$1'" \
+		"if [ ! -d $HOME/.surf/dl ]; then mkdir -p $HOME/.surf/dl; fi;"\
+		"st -T 'Download Status' -e /bin/sh -c \"aria2c -c -x16 --dir=$HOME/.surf/dl -U '$1'" \
 		" --referer '$2' --load-cookies $3 --save-cookies $3 '$0';" \
 		" sleep 3;\"", \
 		d, useragent, r, cookiefile, NULL \
