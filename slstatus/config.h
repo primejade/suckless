@@ -66,13 +66,15 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function      format            argument */
 	{ separator,     " "                        },
-	{ wifi_perc,     "%s ",             "wlan0" },
+//	{ wifi_perc,     "%s",              "wlan0" },
 //	{ netspeed_tx,   "⇑ %s",            "wlan0" },
 //	{ separator,     "|"                        },
 //	{ netspeed_rx,   "%s⇓ ",            "wlan0" },
 //	{ netspeed_tx,   "↑ %s",            "wlan0" },
 //	{ netspeed_rx,   "↓ %s",            "wlan0" },
-	{ wifi_essid,    "(%s)",            "wlan0" },
+	{ keymap,        "(%s)",                    },
+	{ separator,     " "                        },
+	{ wifi_essid,    "%s",              "wlan0" },
 	{ separator,     " "                        },
 	{ ram_used,      "[%s]"                     },
 	{ separator,     " "                        },
