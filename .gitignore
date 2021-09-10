@@ -1,5 +1,4 @@
 *.pdf
-screenshots/
 dmenu/LICENSE
 dmenu/README
 dmenu/config.def.h.orig
