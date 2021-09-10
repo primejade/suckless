@@ -79,3 +79,9 @@ tabbed/tabbed
 tabbed/tabbed.o
 tabbed/xembed
 tabbed/xembed.o
+dwm/dwm
+dwm/dwm.o
+slstatus/slstatus
+slstatus/slstatus.o
+surf/surf
+surf/surf.o

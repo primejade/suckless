@@ -17,6 +17,12 @@ applied patches:
 - highpriority
 
 ## dwm
+
+you need to add dwm manually into your Display Manager,
+
+to do this, you can copy `dwm.desktop` file to
+`/usr/share/xsessions` directory
+
 applied patches:
 
 - autostart
