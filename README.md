@@ -62,3 +62,8 @@ applied patches:
 \
 ![surf screenshot](screenshots/surf.png)
 
+## tabbed
+applied patches:
+
+- keyrelease
+- hidetabs
