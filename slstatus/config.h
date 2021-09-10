@@ -76,5 +76,5 @@ static const struct arg args[] = {
 	{ separator,     " "                        },
 	{ ram_used,      "[%s]"                     },
 	{ separator,     " "                        },
-	{ datetime,      "%s ",             "%F %T" },
+	{ datetime,      "%s",     "%y/%m/%d %H:%M" },
 };
