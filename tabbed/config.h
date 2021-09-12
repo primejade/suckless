@@ -3,9 +3,9 @@
 /* appearance */
 static const char font[]        = "Source Code Pro:size=11";
 static const char* normbgcolor  = "#000000";
-static const char* normfgcolor  = "#ffffff";
+static const char* normfgcolor  = "#dddddd";
 static const char* selbgcolor   = "#000000";
-static const char* selfgcolor   = "#ff3344";
+static const char* selfgcolor   = "#87ff5f";
 static const char* urgbgcolor   = "#111111";
 static const char* urgfgcolor   = "#cc0000";
 static const char before[]      = "<";
