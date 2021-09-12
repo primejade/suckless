@@ -30,9 +30,14 @@ static const char *colors[SchemeLast][2] = {
 //  [SchemeSel] = { "#ebdbb2", "#657b83" },
 //  [SchemeOut] = { "#ebdbb2", "#8ec07c" },
 //
-//customized
-  [SchemeNorm] = { "#ffffff", "#000000" },
-  [SchemeSel] = { "#ff3344", "#000000" },
+//// red-black
+//  [SchemeNorm] = { "#ffffff", "#000000" },
+//  [SchemeSel] = { "#ff3344", "#000000" },
+//  [SchemeOut] = { "#f32323", "#000000" },
+//
+// blue-black
+  [SchemeNorm] = { "#4fb8cc", "#000000" },
+  [SchemeSel] = { "#000000", "#4fb8cc" },
   [SchemeOut] = { "#f32323", "#000000" },
 ////
 };
