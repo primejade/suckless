@@ -48,7 +48,6 @@ applied patches:
 - aria2
 - homepage
 
-> `Control + Shift` key functionalities has changed to `Alt + Control`
 
 ## tabbed
 applied patches:
@@ -56,9 +55,11 @@ applied patches:
 - keyrelease
 - hidetabs
 
+> `Control + Shift` key functionalities has changed to `Alt + Control`
+
 ## Screenshot:
 
-- dwm
+- dwm and slstatus
 ![dwm screenshot](screenshots/dwm.png)
 
 - surf, dmenu and tabbed
