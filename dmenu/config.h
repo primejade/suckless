@@ -42,7 +42,12 @@ static const char *colors[SchemeLast][2] = {
 ////
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
+//static unsigned int lines      = 0;
+    /* grid */
+/* -l and -g options; controls number of lines and columns in grid if > 0 */
 static unsigned int lines      = 0;
+static unsigned int columns    = 0;
+    /* grid */
 
 /*
  * Characters not considered part of a word while deleting words

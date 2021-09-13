@@ -114,7 +114,10 @@ calcoffsets(void)
 	int i, n;
 
 	if (lines > 0)
-		n = lines * bh;
+//		n = lines * bh;
+    /* grid */
+		n = lines * columns * bh;
+    /* grid */
 	else
 		n = mw - (promptw + inputw + TEXTW("<") + TEXTW(">"));
 	/* calculate which items will begin the next page and previous page */
@@ -207,9 +210,20 @@ drawmenu(void)
 
 	recalculatenumbers();
 	if (lines > 0) {
-		/* draw vertical list */
-		for (item = curr; item != next; item = item->right)
-			drawitem(item, x, y += bh, mw - x);
+//		/* draw vertical list */
+//		for (item = curr; item != next; item = item->right)
+//			drawitem(item, x, y += bh, mw - x);
+    /* grid */
+		/* draw grid */
+		int i = 0;
+		for (item = curr; item != next; item = item->right, i++)
+			drawitem(
+				item,
+				x + ((i / lines) *  ((mw - x) / columns)),
+				y + (((i % lines) + 1) * bh),
+				(mw - x) / columns
+			);
+    /* grid */
 	} else if (matches) {
 		/* draw horizontal list */
 		x += inputw;
@@ -784,9 +798,19 @@ main(int argc, char *argv[])
 		} else if (i + 1 == argc)
 			usage();
 		/* these options take one argument */
-		else if (!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
+//		else if (!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
+    /* grid */
+		else if (!strcmp(argv[i], "-g")) {   /* number of columns in grid */
+			columns = atoi(argv[++i]);
+			if (lines == 0) lines = 1;
+		} else if (!strcmp(argv[i], "-l")) { /* number of lines in grid */
+    /* grid */
 			lines = atoi(argv[++i]);
-		else if (!strcmp(argv[i], "-m"))
+//		else if (!strcmp(argv[i], "-m"))
+    /* grid */
+			if (columns == 0) columns = 1;
+		} else if (!strcmp(argv[i], "-m"))
+    /* grid */
 			mon = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
 			prompt = argv[++i];
