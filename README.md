@@ -29,7 +29,7 @@ applied patches
 
 **Some keybindings**
 
-`Mod1Mask` is the default `Mod` key
+`Mod1Mask` (Alt) is the default `Mod` key
 
 `Mod + x`  execute `st` in floating mode
 
@@ -57,7 +57,7 @@ applied patches
 
 > `Control + Shift` key functionalities has changed to `Alt + Control`
 
-## Screenshot
+## Screenshots
 
 - dwm and slstatus
 ![dwm screenshot](screenshots/dwm.png)
