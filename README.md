@@ -17,7 +17,6 @@ applied patches:
 - highpriority
 
 ## dwm
-
 you need to add dwm manually into your Display Manager,
 
 to do this, you can copy `dwm.desktop` file to
@@ -38,22 +37,10 @@ applied patches:
 
 `Mod + w` execute `surf` inside `tabbed`
 
-*Screenshot:*
-\
-\
-![dwm screenshot](screenshots/dwm.png)
-
-
 ## st
 applied patches:
 
 - scrollback
-
-*Screenshot:*
-\
-\
-![st screenshot](screenshots/st.png)
-
 
 ## surf
 applied patches:
@@ -63,13 +50,19 @@ applied patches:
 
 > `Control + Shift` key functionalities has changed to `Alt + Control`
 
-*Screenshot:*
-\
-\
-![surf screenshot](screenshots/surf.png)
-
 ## tabbed
 applied patches:
 
 - keyrelease
 - hidetabs
+
+## Screenshot:
+
+- dwm
+![dwm screenshot](screenshots/dwm.png)
+
+- surf, dmenu and tabbed
+![surf screenshot](screenshots/surf.png)
+
+- st
+![st screenshot](screenshots/st.png)
