@@ -1,7 +1,7 @@
 # suckless
 My Build of some suckless tools
 
-That includes:
+That includes
 
 - dmenu
 - dwm
@@ -11,7 +11,7 @@ That includes:
 - tabbed
 
 ## dmenu
-applied patches:
+applied patches
 
 - numbers
 - highpriority
@@ -22,12 +22,12 @@ you need to add dwm manually into your Display Manager,
 to do this, you can copy `dwm.desktop` file to
 `/usr/share/xsessions` directory
 
-applied patches:
+applied patches
 
 - autostart
 - fullgaps
 
-**_Some keybindings:_**
+**Some keybindings**
 
 `Mod1Mask` is the default `Mod` key
 
@@ -38,26 +38,26 @@ applied patches:
 `Mod + w` execute `surf` inside `tabbed`
 
 ## st
-applied patches:
+applied patches
 
 - scrollback
 
 ## surf
-applied patches:
+applied patches
 
 - aria2
 - homepage
 
 
 ## tabbed
-applied patches:
+applied patches
 
 - keyrelease
 - hidetabs
 
 > `Control + Shift` key functionalities has changed to `Alt + Control`
 
-## Screenshot:
+## Screenshot
 
 - dwm and slstatus
 ![dwm screenshot](screenshots/dwm.png)
