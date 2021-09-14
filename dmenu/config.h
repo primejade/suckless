@@ -14,32 +14,16 @@ static const char *colors[SchemeLast][2] = {
 //  [SchemeSel] = { "#eeeeee", "#005577" },
 //  [SchemeOut] = { "#000000", "#00ffff" },
 //
-////solarized-dark
-//  [SchemeNorm] = { "#839496", "#002b36" },
-//  [SchemeSel] = { "#3c3c33", "#8ec07c"},
-//  [SchemeOut] = { "#000000", "#00ffff" },
-//
-////solarized-light
-//  [SchemeNorm] = { "#657b83", "#fdf6e3" },
-//  [SchemeSel] = { "#657b83", "#eee8d5"},
-//  [SchemeOut] = { "#000000", "#00ffff" },
-//
-////gruvbox
-//  [SchemeNorm] = { "#ebdbb2", "#282828" },
-//  [SchemeSel] = { "#ebdbb2", "#98971a" },
-//  [SchemeSel] = { "#ebdbb2", "#657b83" },
-//  [SchemeOut] = { "#ebdbb2", "#8ec07c" },
-//
-//// red-black
-//  [SchemeNorm] = { "#ffffff", "#000000" },
-//  [SchemeSel] = { "#ff3344", "#000000" },
+//// blue-black
+//  [SchemeNorm] = { "#4fb8cc", "#000000" },
+//  [SchemeSel] = { "#000000", "#4fb8cc" },
 //  [SchemeOut] = { "#f32323", "#000000" },
-//
-// blue-black
-  [SchemeNorm] = { "#4fb8cc", "#000000" },
-  [SchemeSel] = { "#000000", "#4fb8cc" },
-  [SchemeOut] = { "#f32323", "#000000" },
 ////
+// pink
+  [SchemeNorm] = { "#d75f87", "#000000" },
+  [SchemeSel] = { "#000000", "#d75f87" },
+  [SchemeOut] = { "#f32323", "#000000" },
+//
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 //static unsigned int lines      = 0;
