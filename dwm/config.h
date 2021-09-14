@@ -26,14 +26,14 @@ static const char dmenufont[]       =   "Source Code Pro:size=12";
 //static const char col_cyan[]        = "#f32323";
 //static const char *colors[][3]      = {
 ////  /* red and black }}} */
-//  /* orange-black {{{ */
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#000000";
-static const char col_gray3[]       = "#ffffff";
-static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#ff8700";
-static const char *colors[][3]      = {
-//  /* orange-black }}} */
+////  /* orange-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#ff8700";
+//static const char *colors[][3]      = {
+////  /* orange-black }}} */
 ////  /* yellow-black {{{ */
 //static const char col_gray1[]       = "#000000";
 //static const char col_gray2[]       = "#000000";
@@ -82,14 +82,14 @@ static const char *colors[][3]      = {
 //static const char col_cyan[]        = "#767676";
 //static const char *colors[][3]      = {
 ////  /* gray-black }}} */
-////  /* b/w {{{ */
-//static const char col_gray1[]       = "#000000";
-//static const char col_gray2[]       = "#000000";
-//static const char col_gray3[]       = "#ffffff";
-//static const char col_gray4[]       = "#000000";
-//static const char col_cyan[]        = "#ffffff";
-//static const char *colors[][3]      = {
-////  /* b/w }}} */
+//  /* b/w {{{ */
+static const char col_gray1[]       = "#000000";
+static const char col_gray2[]       = "#000000";
+static const char col_gray3[]       = "#ffffff";
+static const char col_gray4[]       = "#000000";
+static const char col_cyan[]        = "#ffffff";
+static const char *colors[][3]      = {
+//  /* b/w }}} */
 
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
