@@ -7,17 +7,93 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Source Code Pro:size=12" };
-static const char dmenufont[]       = "Source Code Pro:size=12";
+static const char dmenufont[]       =   "Source Code Pro:size=12";
+////  /* simple red/black scheme {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#f32323";
+//static const char col_cyan[]        = "#000000";
+//static const char col_cyan2[]       = "#f32323";
+//static const char *colors[][3]      = {
+////  /* simple red/black scheme }}} */
+
+////  /* red and black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#f32323";
+//static const char *colors[][3]      = {
+////  /* red and black }}} */
+//  /* orange-black {{{ */
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#000000";
 static const char col_gray3[]       = "#ffffff";
-static const char col_gray4[]       = "#ff5566";
-static const char col_cyan[]        = "#000000";
-static const char col_cyan2[]       = "#f32323";
+static const char col_gray4[]       = "#000000";
+static const char col_cyan[]        = "#ff8700";
 static const char *colors[][3]      = {
+//  /* orange-black }}} */
+////  /* yellow-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#ffff00";
+//static const char *colors[][3]      = {
+////  /* yellow-black }}} */
+////  /* green-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#87ff5f";
+//static const char *colors[][3]      = {
+////  /* green-black }}} */
+////  /* lightblue-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#4fb8cc";
+//static const char *colors[][3]      = {
+////  /* lightblue-black }}} */
+////  /* blue-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#007acc";
+//static const char *colors[][3]      = {
+////  /* blue-black }}} */
+////  /* pink-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#d75f87";
+//static const char *colors[][3]      = {
+////  /* pink-black }}} */
+////  /* gray-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#767676";
+//static const char *colors[][3]      = {
+////  /* gray-black }}} */
+////  /* b/w {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#ffffff";
+//static const char *colors[][3]      = {
+////  /* b/w }}} */
+
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan2  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 static const char *const autostart[] = {
@@ -68,7 +144,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-p", "run", "-hp", "chromium", "-m", dmenumon, "-fn", dmenufont, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-p", "run", "-hp", "chromium", "-m", dmenumon, "-fn", dmenufont, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-p", "run", "-hp", "chromium", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 // /* custom executable commands */
 static const char *flotercmd[]  = { "st", "-t", "Terminal", NULL};
