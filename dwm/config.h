@@ -8,15 +8,16 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Source Code Pro:size=12" };
 static const char dmenufont[]       =   "Source Code Pro:size=12";
-////  /* simple red/black scheme {{{ */
-//static const char col_gray1[]       = "#000000";
-//static const char col_gray2[]       = "#000000";
-//static const char col_gray3[]       = "#ffffff";
-//static const char col_gray4[]       = "#f32323";
-//static const char col_cyan[]        = "#000000";
-//static const char col_cyan2[]       = "#f32323";
-//static const char *colors[][3]      = {
-////  /* simple red/black scheme }}} */
+
+//  /* simple red/black scheme {{{ */
+static const char col_gray1[]       = "#000000";
+static const char col_gray2[]       = "#f32323";
+static const char col_gray3[]       = "#ffffff";
+static const char col_gray4[]       = "#f32323";
+static const char col_cyan[]        = "#000000";
+static const char col_cyan2[]       = "#f32323";
+static const char *colors[][3]      = {
+//  /* simple red/black scheme }}} */
 
 ////  /* red and black {{{ */
 //static const char col_gray1[]       = "#000000";
@@ -50,6 +51,14 @@ static const char dmenufont[]       =   "Source Code Pro:size=12";
 //static const char col_cyan[]        = "#87ff5f";
 //static const char *colors[][3]      = {
 ////  /* green-black }}} */
+////  /* lightgreen-black {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#499c54";
+//static const char *colors[][3]      = {
+////  /* lightgreen-black }}} */
 ////  /* lightblue-black {{{ */
 //static const char col_gray1[]       = "#000000";
 //static const char col_gray2[]       = "#000000";
@@ -82,14 +91,14 @@ static const char dmenufont[]       =   "Source Code Pro:size=12";
 //static const char col_cyan[]        = "#767676";
 //static const char *colors[][3]      = {
 ////  /* gray-black }}} */
-//  /* b/w {{{ */
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#000000";
-static const char col_gray3[]       = "#ffffff";
-static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#ffffff";
-static const char *colors[][3]      = {
-//  /* b/w }}} */
+////  /* b/w {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#ffffff";
+//static const char *colors[][3]      = {
+////  /* b/w }}} */
 
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -113,10 +122,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-//	{ "Gimp",      NULL,         NULL,       0,            1,           -1 },
-//	{ "Firefox",   NULL,         NULL,       1 << 8,       0,           -1 },
-	{ "st",        NULL,   "Terminal",       0,            1,           -1 },
+	/* class      instance    title             tags mask     isfloating   monitor */
+//	{ "Gimp",      NULL,      NULL,                0,              1,           -1 },
+//	{ "Firefox",   NULL,      NULL,                1 << 8,         0,           -1 },
+	{ "st",        NULL,      "Terminal",          0,              1,           -1 },
+	{ "feh",       NULL,      "scrot preview",     0,              1,           -1 },
 };
 
 /* layout(s) */
@@ -148,11 +158,12 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-p", "run", "-hp", "chromium", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 // /* custom executable commands */
-static const char *flotercmd[]  = { "st", "-t", "Terminal", NULL};
-static const char *browcmd[]    = { "tabbed", "surf", "-e", NULL};
-static const char *tabbedcmd[]  = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "tabbed st", NULL};
+static const char *flotercmd[]   = { "st", "-t", "Terminal", NULL};
+static const char *browcmd[]     = { "tabbed", "surf", "-e", NULL};
+static const char *tabbedcmd[]   = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "tabbed st", NULL};
+static const char *screenshot[]  = { "sh", "-c", "~/bin/screenshot.sh", NULL};
+static const char *shotmenu[]    = { "bash", "-c", "~/bin/dm-shot.sh", NULL};
 //static const char *screenshot[]    = { "sh", "~/bin/screenshot.sh", NULL};
-static const char *screenshot[]    = { "sh", "-c", "~/bin/screenshot.sh", NULL};
 // /* custom executable commands */
 
 static Key keys[] = {
@@ -164,6 +175,7 @@ static Key keys[] = {
 	{ MODKEY,                 XK_x,         spawn,          {.v = flotercmd } },
 	{ MODKEY|ShiftMask,       XK_x,         spawn,          {.v = tabbedcmd } },
 	{ 0,                      XK_Print,     spawn,          {.v = screenshot } },
+	{ MODKEY,                 XK_Print,     spawn,          {.v = shotmenu } },
 //  /* customized keybindings }}} */              
 	{ MODKEY,                 XK_b,         togglebar,      {0} },
 	{ MODKEY,                 XK_j,         focusstack,     {.i = +1 } },
