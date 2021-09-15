@@ -122,11 +122,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title             tags mask     isfloating   monitor */
-//	{ "Gimp",      NULL,      NULL,                0,              1,           -1 },
-//	{ "Firefox",   NULL,      NULL,                1 << 8,         0,           -1 },
-	{ "st",        NULL,      "Terminal",          0,              1,           -1 },
-	{ "feh",       NULL,      "scrot preview",     0,              1,           -1 },
+	/* class      instance    title           tags mask       iscentered   isfloating    monitor */
+//	{ "Gimp",     NULL,       NULL,                0,              0,           1,           -1 },
+//	{ "Firefox",  NULL,       NULL,           1 << 8,              0,           0,           -1 },
+	{ "st",       NULL,       "Terminal",          0,              1,           1,           -1 },
+	{ "st",       NULL,       "Notes",             0,              1,           1,           -1 },
+	{ "feh",      NULL,       "scrot preview",     0,              1,           1,           -1 },
 };
 
 /* layout(s) */
@@ -163,6 +164,7 @@ static const char *browcmd[]     = { "tabbed", "surf", "-e", NULL};
 static const char *tabbedcmd[]   = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "tabbed st", NULL};
 static const char *screenshot[]  = { "sh", "-c", "~/bin/screenshot.sh", NULL};
 static const char *shotmenu[]    = { "bash", "-c", "~/bin/dm-shot.sh", NULL};
+static const char *exitmenu[]    = { "bash", "-c", "~/bin/dm-exit.sh", NULL};
 //static const char *screenshot[]    = { "sh", "~/bin/screenshot.sh", NULL};
 // /* custom executable commands */
 
@@ -210,7 +212,8 @@ static Key keys[] = {
 	TAGKEYS(                  XK_7,                        6)
 	TAGKEYS(                  XK_8,                        7)
 	TAGKEYS(                  XK_9,                        8)
-	{ MODKEY|ShiftMask,       XK_q,        quit,           {0} },
+//	{ MODKEY|ShiftMask,       XK_q,        quit,           {0} },
+	{ MODKEY|ShiftMask,       XK_q,        spawn,           {.v = exitmenu } },
 };
 
 /* button definitions */
