@@ -57,4 +57,6 @@ slock/*.o
 slock/LICENSE
 slock/README
 slock/slock
-
+slock/config.def.h.rej
+slock/config.mk.rej
+slock/slock.c.rej
