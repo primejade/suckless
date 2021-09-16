@@ -20,8 +20,8 @@ static const char *colors[SchemeLast][2] = {
 //  [SchemeOut] = { "#f32323", "#000000" },
 ////
 // pink
-  [SchemeNorm] = { "#d75f87", "#000000" },
-  [SchemeSel] = { "#000000", "#d75f87" },
+  [SchemeNorm] = { "#ff8700", "#000000" },
+  [SchemeSel] = { "#000000", "#ff8700" },
   [SchemeOut] = { "#f32323", "#000000" },
 //
 };
