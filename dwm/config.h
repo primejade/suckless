@@ -11,11 +11,11 @@ static const char dmenufont[]       =   "Source Code Pro:size=12";
 
 //  /* simple red/black scheme {{{ */
 static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#f32323";
+static const char col_gray2[]       = "#555555";
 static const char col_gray3[]       = "#ffffff";
 static const char col_gray4[]       = "#f32323";
 static const char col_cyan[]        = "#000000";
-static const char col_cyan2[]       = "#f32323";
+static const char col_cyan2[]       = "#ff0023";
 static const char *colors[][3]      = {
 //  /* simple red/black scheme }}} */
 
@@ -102,7 +102,7 @@ static const char *colors[][3]      = {
 
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan2 },
 };
 
 static const char *const autostart[] = {
@@ -122,12 +122,12 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title           tags mask       iscentered   isfloating    monitor */
+	/* class      instance    title            tags mask      iscentered   isfloating    monitor */
 //	{ "Gimp",     NULL,       NULL,                0,              0,           1,           -1 },
 //	{ "Firefox",  NULL,       NULL,           1 << 8,              0,           0,           -1 },
 	{ "st",       NULL,       "Terminal",          0,              1,           1,           -1 },
 	{ "st",       NULL,       "Notes",             0,              1,           1,           -1 },
-	{ "feh",      NULL,       "scrot preview",     0,              1,           1,           -1 },
+	{ "feh",      NULL,   "feh - scrot preview",   0,              1,           1,           -1 },
 };
 
 /* layout(s) */
@@ -162,10 +162,17 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *flotercmd[]   = { "st", "-t", "Terminal", NULL};
 static const char *browcmd[]     = { "tabbed", "surf", "-e", NULL};
 static const char *tabbedcmd[]   = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "tabbed st", NULL};
+
 static const char *screenshot[]  = { "sh", "-c", "~/bin/screenshot.sh", NULL};
 static const char *shotmenu[]    = { "bash", "-c", "~/bin/dm-shot.sh", NULL};
+
 static const char *exitmenu[]    = { "bash", "-c", "~/bin/dm-exit.sh", NULL};
-//static const char *screenshot[]    = { "sh", "~/bin/screenshot.sh", NULL};
+
+static const char *notetake[]    = { "st", "-t", "Notes", "-e", "bash", "-c", "~/bin/NoteMarkdown.sh", NULL};
+static const char *noteshow[]    = { "bash", "-c", "~/bin/NoteReadNew.sh", NULL};
+static const char *notemenu[]    = { "bash", "-c", "~/bin/dm-Note.sh", NULL};
+
+static const char *calcurse[]   = { "st", "-t", "Terminal" "-e", "calcurse" , NULL};
 // /* custom executable commands */
 
 static Key keys[] = {
@@ -178,6 +185,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,       XK_x,         spawn,          {.v = tabbedcmd } },
 	{ 0,                      XK_Print,     spawn,          {.v = screenshot } },
 	{ MODKEY,                 XK_Print,     spawn,          {.v = shotmenu } },
+  /* separator */
+	{ MODKEY,                 XK_n,         spawn,          {.v = notetake } },
+	{ ControlMask,            XK_n,         spawn,          {.v = noteshow } },
+	{ MODKEY|ShiftMask,       XK_n,         spawn,          {.v = notemenu } },
+  /* separator */
+	{ MODKEY,                 XK_c,         spawn,          {.v = calcurse } },
 //  /* customized keybindings }}} */              
 	{ MODKEY,                 XK_b,         togglebar,      {0} },
 	{ MODKEY,                 XK_j,         focusstack,     {.i = +1 } },
