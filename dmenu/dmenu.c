@@ -51,7 +51,10 @@ static char fribidi_text[BUFSIZ] = "";
 /* bidi */
 static char *embed;
 static int bh, mw, mh;
-static int inputw = 0, promptw;
+//static int inputw = 0, promptw;
+    /* password */
+static int inputw = 0, promptw, passwd = 0;
+    /* password */
 static int lrpad; /* sum of left and right padding */
 static size_t cursor;
 static struct item *items = NULL;
@@ -222,6 +225,9 @@ drawmenu(void)
 	unsigned int curpos;
 	struct item *item;
 	int x = 0, y = 0, w;
+    /* password */
+        char *censort;
+    /* password */
 
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	drw_rect(drw, 0, 0, mw, mh, 1, 1);
@@ -235,8 +241,18 @@ drawmenu(void)
 	drw_setscheme(drw, scheme[SchemeNorm]);
 //	drw_text(drw, x, 0, w, bh, lrpad / 2, text, 0);
 /* bidi */
+    /* password */
+	if (passwd) {
+	        censort = ecalloc(1, sizeof(text));
+		memset(censort, '.', strlen(text));
+		drw_text(drw, x, 0, w, bh, lrpad / 2, censort, 0);
+		free(censort);
+    }
+    /* password */
+        else {
 	apply_fribidi(text);
 	drw_text(drw, x, 0, w, bh, lrpad / 2, fribidi_text, 0);
+        }
 /* bidi */
 
 	curpos = TEXTW(text) - TEXTW(&text[cursor]);
@@ -643,6 +659,13 @@ readstdin(void)
 	size_t i, imax = 0, size = 0;
 	unsigned int tmpmax = 0;
 
+    /* password */
+	if(passwd){
+    	inputw = lines = 0;
+    	return;
+  	}
+    /* password */
+
 	/* read each line from stdin and add it to the item list */
 	for (i = 0; fgets(buf, sizeof buf, stdin); i++) {
 		if (i + 1 >= size / sizeof *items)
@@ -808,7 +831,7 @@ setup(void)
 static void
 usage(void)
 {
-	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+	fputs("usage: dmenu [-bfivP] [-l lines] [-g columns] [-p prompt] [-fn font] [-m monitor]\n"
 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n"
 		  "             [-hb color] [-hf color] [-hp items]\n", stderr);
 	exit(1);
@@ -832,7 +855,12 @@ main(int argc, char *argv[])
 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
-		} else if (i + 1 == argc)
+//		} else if (i + 1 == argc)
+    /* password */
+		} else if (!strcmp(argv[i], "-P"))   /* is the input a password */
+			passwd = 1;
+		else if (i + 1 == argc)
+    /* password */
 			usage();
 		/* these options take one argument */
 //		else if (!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
