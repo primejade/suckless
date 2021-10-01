@@ -6,11 +6,11 @@ static const char *colorname[NUMCOLS] = {
 	[INIT]   =  "#171717",    /* after initialization */
 	[INPUT]  =  "#0059aa",    /* during input */
 	[FAILED] =  "#f32323",    /* wrong password */
-	[CAPS]   =  "#ff5500",    /* CapsLock on */
+	[CAPS]   =  "#ff9900",    /* CapsLock on */
 };
 
 /* treat a cleared input like a wrong password (color) */
-static const int failonclear = 1;
+static const int failonclear = 0;
 
 /* default message */
 static const char * message = "Please don't play with the keyboard";

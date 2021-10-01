@@ -4,29 +4,46 @@
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 9;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+  /* systray */
+//static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+//static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
+//static const unsigned int systrayspacing = 2;   /* systray spacing */
+//static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+//static const int showsystray        = 1;     /* 0 means no systray */
+  /* systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:size=12" };
-static const char dmenufont[]       =   "Source Code Pro:size=12";
+static const char *fonts[]          = { "Source Code Pro:size=11" };
+static const char dmenufont[]       =   "Source Code Pro:size=11";
 
-//  /* simple red/black scheme {{{ */
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#555555";
-static const char col_gray3[]       = "#ffffff";
-static const char col_gray4[]       = "#f32323";
-static const char col_cyan[]        = "#000000";
-static const char col_cyan2[]       = "#ff0023";
-static const char *colors[][3]      = {
-//  /* simple red/black scheme }}} */
+////  /* simple red/black scheme {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#555555";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#f32323";
+//static const char col_cyan[]        = "#000000";
+//static const char col_cyan2[]       = "#ff0000";
+//static const char *colors[][3]      = {
+////  /* simple red/black scheme }}} */
 
 ////  /* red and black {{{ */
 //static const char col_gray1[]       = "#000000";
 //static const char col_gray2[]       = "#000000";
 //static const char col_gray3[]       = "#ffffff";
 //static const char col_gray4[]       = "#000000";
-//static const char col_cyan[]        = "#f32323";
+//static const char col_cyan[]        = "#f44441";
+//static const char col_cyan2[]       = "#ff0041";
 //static const char *colors[][3]      = {
 ////  /* red and black }}} */
+////  /* orange-yellow {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#4fb8cc";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#ff7700";
+//static const char col_cyan2[]        = "#ffbb00";
+//static const char *colors[][3]      = {
+////  /* orange-black }}} */
 ////  /* orange-black {{{ */
 //static const char col_gray1[]       = "#000000";
 //static const char col_gray2[]       = "#000000";
@@ -75,6 +92,15 @@ static const char *colors[][3]      = {
 //static const char col_cyan[]        = "#007acc";
 //static const char *colors[][3]      = {
 ////  /* blue-black }}} */
+//  /* blueandblue {{{ */
+static const char col_gray1[]       = "#000000";
+static const char col_gray2[]       = "#000000";
+static const char col_gray3[]       = "#ffffff";
+static const char col_gray4[]       = "#000000";
+static const char col_cyan[]        = "#88ccdd";
+static const char col_cyan2[]       = "#4fb8cc";
+static const char *colors[][3]      = {
+//  /* blue-black }}} */
 ////  /* pink-black {{{ */
 //static const char col_gray1[]       = "#000000";
 //static const char col_gray2[]       = "#000000";
@@ -100,9 +126,16 @@ static const char *colors[][3]      = {
 //static const char *colors[][3]      = {
 ////  /* b/w }}} */
 
+/* color on forground {{{ */
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan2 },
+	[SchemeSel]  = { col_cyan2, col_gray4, col_cyan2 },
+/* }}} */
+//// /* color on background {{{ */
+//	/*               fg         bg         border   */
+//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+//	[SchemeSel]  = { col_gray4, col_cyan2,  col_cyan2 },
+//// /* }}} */
 };
 
 static const char *const autostart[] = {
@@ -122,12 +155,15 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title            tags mask      iscentered   isfloating    monitor */
-//	{ "Gimp",     NULL,       NULL,                0,              0,           1,           -1 },
-//	{ "Firefox",  NULL,       NULL,           1 << 8,              0,           0,           -1 },
-	{ "st",       NULL,       "Terminal",          0,              1,           1,           -1 },
-	{ "st",       NULL,       "Notes",             0,              1,           1,           -1 },
-	{ "feh",      NULL,   "feh - scrot preview",   0,              1,           1,           -1 },
+	/* class          instance    title            tags mask      iscentered   isfloating    monitor */
+//	{ "Gimp",         NULL,       NULL,                0,              0,           1,           -1 },
+//	{ "Firefox",      NULL,       NULL,           1 << 8,              0,           0,           -1 },
+	{ "persepolis",   NULL,       "Persepolis",   4 << 0,              0,           1,           -1 },
+	{ "chromium",     NULL,       "Chromium",     3 << 0,              0,           0,           -1 },
+	{ "Telegram",     NULL,       "Telegram",     6 << 0,              0,           1,           -1 },
+	{ "st",           NULL,       "Terminal",          0,              1,           1,           -1 },
+	{ "st",           NULL,       "Notes",             0,              1,           1,           -1 },
+	{ "feh",          NULL,   "feh - scrot preview",   0,              1,           1,           -1 },
 };
 
 /* layout(s) */
@@ -168,7 +204,7 @@ static const char *shotmenu[]    = { "bash", "-c", "~/bin/dm-shot.sh", NULL};
 
 static const char *exitmenu[]    = { "bash", "-c", "~/bin/dm-exit.sh", NULL};
 
-static const char *notetake[]    = { "st", "-t", "Notes", "-e", "bash", "-c", "~/bin/NoteMarkdown.sh", NULL};
+static const char *notetake[]    = { "st", "-t", "Notes", "-e", "bash", "-c", "~/bin/NoteGroff.sh", NULL};
 static const char *noteshow[]    = { "bash", "-c", "~/bin/NoteReadNew.sh", NULL};
 static const char *notemenu[]    = { "bash", "-c", "~/bin/dm-Note.sh", NULL};
 
@@ -187,8 +223,8 @@ static Key keys[] = {
 	{ MODKEY,                 XK_Print,     spawn,          {.v = shotmenu } },
   /* separator */
 	{ MODKEY,                 XK_n,         spawn,          {.v = notetake } },
-	{ ControlMask,            XK_n,         spawn,          {.v = noteshow } },
-	{ MODKEY|ShiftMask,       XK_n,         spawn,          {.v = notemenu } },
+	{ MODKEY|ShiftMask,       XK_n,         spawn,          {.v = noteshow } },
+	{ MODKEY|ControlMask,     XK_n,         spawn,          {.v = notemenu } },
   /* separator */
 	{ MODKEY,                 XK_c,         spawn,          {.v = calcurse } },
 //  /* customized keybindings }}} */              

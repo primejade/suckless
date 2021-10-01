@@ -9,12 +9,14 @@ That includes
 - st
 - surf
 - tabbed
+- slock
 
 ## dmenu
 applied patches
 
 - numbers
 - highpriority
+- grid
 
 ## dwm
 you need to add dwm manually into your Display Manager,
