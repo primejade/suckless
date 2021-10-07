@@ -98,7 +98,7 @@ static const char col_gray2[]       = "#000000";
 static const char col_gray3[]       = "#ffffff";
 static const char col_gray4[]       = "#000000";
 static const char col_cyan[]        = "#88ccdd";
-static const char col_cyan2[]       = "#4fb8cc";
+static const char col_cyan2[]       = "#4fbbcc";
 static const char *colors[][3]      = {
 //  /* blue-black }}} */
 ////  /* pink-black {{{ */
@@ -158,9 +158,10 @@ static const Rule rules[] = {
 	/* class          instance    title            tags mask      iscentered   isfloating    monitor */
 //	{ "Gimp",         NULL,       NULL,                0,              0,           1,           -1 },
 //	{ "Firefox",      NULL,       NULL,           1 << 8,              0,           0,           -1 },
-	{ "persepolis",   NULL,       "Persepolis",   4 << 0,              0,           1,           -1 },
-	{ "chromium",     NULL,       "Chromium",     3 << 0,              0,           0,           -1 },
-	{ "Telegram",     NULL,       "Telegram",     6 << 0,              0,           1,           -1 },
+	{ "persepolis",   NULL,   "Persepolis Download Manager",           0,           0,     1,    -1 },
+//	{ "Chromium",     NULL,       "Chromium",          0,              0,           0,           -1 },
+	{ "Telegram",     NULL,       "Telegram",          0,              0,           1,           -1 },
+	{ "sterminal",    NULL,       "sTerminal",         0,              1,           1,           -1 },
 	{ "st",           NULL,       "Terminal",          0,              1,           1,           -1 },
 	{ "st",           NULL,       "Notes",             0,              1,           1,           -1 },
 	{ "feh",          NULL,   "feh - scrot preview",   0,              1,           1,           -1 },
@@ -195,20 +196,23 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-p", "run", "-hp", "chromium", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 // /* custom executable commands */
-static const char *flotercmd[]   = { "st", "-t", "Terminal", NULL};
+static const char *regularcmd[]  = { "sterminal", NULL };
+static const char *scrnlk[]  = { "slock", NULL };
+//static const char *flotercmd[]   = { "st", "-t", "Terminal", NULL};
+static const char *flotercmd[]   = { "sterminal", "-t", "sTerminal", NULL};
 static const char *browcmd[]     = { "tabbed", "surf", "-e", NULL};
-static const char *tabbedcmd[]   = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "tabbed st", NULL};
+static const char *tabbedcmd[]   = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "sterm", NULL};
 
 static const char *screenshot[]  = { "sh", "-c", "~/bin/screenshot.sh", NULL};
 static const char *shotmenu[]    = { "bash", "-c", "~/bin/dm-shot.sh", NULL};
 
 static const char *exitmenu[]    = { "bash", "-c", "~/bin/dm-exit.sh", NULL};
 
-static const char *notetake[]    = { "st", "-t", "Notes", "-e", "bash", "-c", "~/bin/NoteGroff.sh", NULL};
-static const char *noteshow[]    = { "bash", "-c", "~/bin/NoteReadNew.sh", NULL};
+static const char *notetake[]    = { "st", "-t", "Notes", "-e", "sh", "-c", "~/bin/NoteGroff.sh", NULL};
+static const char *noteshow[]    = { "sh", "-c", "~/bin/NoteReadNew.sh", NULL};
 static const char *notemenu[]    = { "bash", "-c", "~/bin/dm-Note.sh", NULL};
 
-static const char *calcurse[]   = { "st", "-t", "Terminal" "-e", "calcurse" , NULL};
+//static const char *calcurse[]   = { "st", "-t", "Terminal" "-e", "calcurse" , NULL};
 // /* custom executable commands */
 
 static Key keys[] = {
@@ -216,9 +220,10 @@ static Key keys[] = {
 	{ MODKEY,                 XK_p,         spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,       XK_Return,    spawn,          {.v = termcmd } },
 //  /* customized keybindings {{{ */              
+	{ MODKEY|ShiftMask,       XK_l,         spawn,          {.v = scrnlk } },
 	{ MODKEY,                 XK_w,         spawn,          {.v = browcmd } },
 	{ MODKEY,                 XK_x,         spawn,          {.v = flotercmd } },
-	{ MODKEY|ShiftMask,       XK_x,         spawn,          {.v = tabbedcmd } },
+	{ MODKEY|ControlMask,     XK_t,         spawn,          {.v = regularcmd } },
 	{ 0,                      XK_Print,     spawn,          {.v = screenshot } },
 	{ MODKEY,                 XK_Print,     spawn,          {.v = shotmenu } },
   /* separator */
@@ -226,7 +231,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,       XK_n,         spawn,          {.v = noteshow } },
 	{ MODKEY|ControlMask,     XK_n,         spawn,          {.v = notemenu } },
   /* separator */
-	{ MODKEY,                 XK_c,         spawn,          {.v = calcurse } },
+//	{ MODKEY,                 XK_c,         spawn,          {.v = calcurse } },
 //  /* customized keybindings }}} */              
 	{ MODKEY,                 XK_b,         togglebar,      {0} },
 	{ MODKEY,                 XK_j,         focusstack,     {.i = +1 } },

@@ -13,7 +13,7 @@ static const char *colorname[NUMCOLS] = {
 static const int failonclear = 0;
 
 /* default message */
-static const char * message = "Please don't play with the keyboard";
+static const char * message = "Please do not play with the keyboard";
 
 /* text color */
 static const char * text_color = "#ffffff";
