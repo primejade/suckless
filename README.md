@@ -62,10 +62,10 @@ applied patches
 ## Screenshots
 
 - dwm and slstatus
-![dwm screenshot](screenshots/dwm.png)
+![dwm screenshot](shots/dwm.png)
 
 - surf, dmenu and tabbed
-![surf screenshot](screenshots/surf.png)
+![surf screenshot](shots/surf.png)
 
 - st
-![st screenshot](screenshots/st.png)
+![st screenshot](shots/st.png)

@@ -52,7 +52,7 @@ tabbed/tabbed
 tabbed/xembed
 tabbed/*.o
 patches/
-screenshots/arch
+shots/arch
 slock/*.o
 slock/LICENSE
 slock/README
