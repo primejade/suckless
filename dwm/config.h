@@ -126,16 +126,16 @@ static const char *colors[][3]      = {
 //static const char *colors[][3]      = {
 ////  /* b/w }}} */
 
-/* color on forground {{{ */
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_cyan2, col_gray4, col_cyan2 },
-/* }}} */
-//// /* color on background {{{ */
+//// /* color on forground {{{ */
 //	/*               fg         bg         border   */
 //	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-//	[SchemeSel]  = { col_gray4, col_cyan2,  col_cyan2 },
+//	[SchemeSel]  = { col_cyan2, col_gray4, col_cyan2 },
 //// /* }}} */
+// /* color on background {{{ */
+	/*               fg         bg         border   */
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_cyan2,  col_cyan2 },
+// /* }}} */
 };
 
 static const char *const autostart[] = {
@@ -161,7 +161,7 @@ static const Rule rules[] = {
 	{ "persepolis",   NULL,   "Persepolis Download Manager",           0,           0,     1,    -1 },
 //	{ "Chromium",     NULL,       "Chromium",          0,              0,           0,           -1 },
 	{ "Telegram",     NULL,       "Telegram",          0,              0,           1,           -1 },
-	{ "sterminal",    NULL,       "sTerminal",         0,              1,           1,           -1 },
+	{ "sterminal",    NULL,       "Terminal",          0,              1,           1,           -1 },
 	{ "st",           NULL,       "Terminal",          0,              1,           1,           -1 },
 	{ "st",           NULL,       "Notes",             0,              1,           1,           -1 },
 	{ "feh",          NULL,   "feh - scrot preview",   0,              1,           1,           -1 },
@@ -199,7 +199,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *regularcmd[]  = { "sterminal", NULL };
 static const char *scrnlk[]  = { "slock", NULL };
 //static const char *flotercmd[]   = { "st", "-t", "Terminal", NULL};
-static const char *flotercmd[]   = { "sterminal", "-t", "sTerminal", NULL};
+static const char *flotercmd[]   = { "st", "-t", "Terminal", NULL};
 static const char *browcmd[]     = { "tabbed", "surf", "-e", NULL};
 static const char *tabbedcmd[]   = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "sterm", NULL};
 
@@ -223,6 +223,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,       XK_l,         spawn,          {.v = scrnlk } },
 	{ MODKEY,                 XK_w,         spawn,          {.v = browcmd } },
 	{ MODKEY,                 XK_x,         spawn,          {.v = flotercmd } },
+	{ MODKEY,                 XK_t,         spawn,          {.v = tabbedcmd } },
 	{ MODKEY|ControlMask,     XK_t,         spawn,          {.v = regularcmd } },
 	{ 0,                      XK_Print,     spawn,          {.v = screenshot } },
 	{ MODKEY,                 XK_Print,     spawn,          {.v = shotmenu } },
