@@ -1,16 +1,18 @@
 /* See LICENSE file for copyright and license details. */
 
 static char *fontfallbacks[] = {
-	"dejavu sans",
-	"roboto",
-	"ubuntu",
+    "CMU Serif",
+	"Ubuntu",
+    "CMU Sans",
+	"Dejavu sans",
+	"Roboto",
 };
 #define NUMFONTSCALES 42
 #define FONTSZ(x) ((int)(10.0 * powf(1.1288, (x)))) /* x in [0, NUMFONTSCALES-1] */
 
 static const char *colors[] = {
-	"#000000", /* foreground color */
-	"#FFFFFF", /* background color */
+	"#dddddd", /* foreground color */
+	"#191919", /* background color */
 };
 
 static const float linespacing = 1.4;

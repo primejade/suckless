@@ -25,8 +25,6 @@
 
 char *argv0;
 
-int use_inverted_colors = 0;
-
 /* macros */
 #define LEN(a)         (sizeof(a) / sizeof(a)[0])
 #define LIMIT(x, a, b) (x) = (x) < (a) ? (a) : (x) > (b) ? (b) : (x)
@@ -592,12 +590,7 @@ xinit()
 
 	if (!(d = drw_create(xw.dpy, xw.scr, xw.win, xw.w, xw.h)))
 		die("sent: Unable to create drawing context");
-//	sc = drw_scm_create(d, colors, 2);
-	if (use_inverted_colors) {
-		sc = drw_scm_create(d, inverted_colors, 2);
-	} else {
-		sc = drw_scm_create(d, colors, 2);
-	}
+	sc = drw_scm_create(d, colors, 2);
 	drw_setscheme(d, sc);
 	XSetWindowBackground(xw.dpy, xw.win, sc[ColBg].pixel);
 
@@ -686,7 +679,10 @@ configure(XEvent *e)
 void
 usage()
 {
-	die("usage: %s [file]", argv0);
+//	die("usage: %s [file]", argv0);
+    /* options */
+	die("usage: %s [-c fgcolor] [-b bgcolor] [-f font] [file]", argv0);
+    /* options */
 }
 
 int
@@ -698,9 +694,17 @@ main(int argc, char *argv[])
 	case 'v':
 		fprintf(stderr, "sent-"VERSION"\n");
 		return 0;
-	case 'i':
-		use_inverted_colors = 1;
+    /* options */
+	case 'f':
+		fontfallbacks[0] = EARGF(usage());
 		break;
+	case 'c':
+		colors[0] = EARGF(usage());
+		break;
+	case 'b':
+		colors[1] = EARGF(usage());
+		break;
+    /* options */
 	default:
 		usage();
 	} ARGEND
