@@ -1,56 +1,50 @@
-*.txt
-*.pdf
-*.orig
-*.rej
-*.o
-
-*/LICENSE
-*/README
-
-dmenu/dmenu_run
-dmenu/dmenu_path
-dmenu/dmenu
-dmenu/stest
-
-dwm/dwm.png
-dwm/dwm
-
-slstatus/components
-slstatus/slstatus
-
-st/FAQ
-st/LEGACY
-st/st
-st/st.info
-surf/FAQ.md
-surf/LICENSE
-surf/README
-surf/TODO.md
-surf/surf
-surf/surf.png
-surf/webext-surf.so
-tabbed/LICENSE
-tabbed/README
-tabbed/TODO
-tabbed/tabbed
-tabbed/xembed
-patches/
-shots/arch
-slock/LICENSE
-slock/README
-slock/slock
-
-farbfeld/2ff
-farbfeld/FORMAT
-farbfeld/LICENSE
-farbfeld/README
-
-sent/LICENSE
-sent/example
-sent/sent
-sent/transparent_test.ff
-sent/README.md
-sent/nyan.png
-
-*.swp
-
+ M .gitignore
+ M dmenu/dmenu
+ M dmenu/dmenu.o
+ M dmenu/stest
+ M dwm/config.h
+ M dwm/dwm
+ M dwm/dwm.o
+ M st/config.h
+?? README.pdf
+?? farbfeld/2ff
+?? farbfeld/FORMAT
+?? farbfeld/HE-inverted.ff
+?? farbfeld/HE-inverted.png
+?? farbfeld/HE.png
+?? farbfeld/LICENSE
+?? farbfeld/README
+?? farbfeld/ff2jpg
+?? farbfeld/ff2jpg.o
+?? farbfeld/ff2pam
+?? farbfeld/ff2pam.o
+?? farbfeld/ff2png
+?? farbfeld/ff2png.o
+?? farbfeld/ff2ppm
+?? farbfeld/ff2ppm.o
+?? farbfeld/jpg2ff
+?? farbfeld/jpg2ff.o
+?? farbfeld/png2ff
+?? farbfeld/png2ff.o
+?? farbfeld/util.o
+?? patches/
+?? pubkey.txt
+?? sent/HE-inverted.ff
+?? sent/HE.png
+?? sent/LICENSE
+?? sent/README.md
+?? sent/drw.o
+?? sent/example
+?? sent/nyan.png
+?? sent/sent
+?? sent/sent.o
+?? sent/test.sent
+?? sent/transparent_test.ff
+?? sent/util.o
+?? shots/arch/
+?? slock/config.def.h.rej
+?? slock/config.mk.rej
+?? slock/explicit_bzero.o
+?? slock/slock
+?? slock/slock.c.rej
+?? slock/slock.o
