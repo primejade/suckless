@@ -13,18 +13,18 @@ static const unsigned int snap      = 32;       /* snap pixel */
   /* systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:size=11" };
-static const char dmenufont[]       =   "Source Code Pro:size=11";
+static const char *fonts[]          = { "UbuntuMonoNerdFont:size=14" };
+static const char dmenufont[]       =   "UbuntuMonoNerdFont:size=14" ;
 
-////  /* simple red/black scheme {{{ */
-//static const char col_gray1[]       = "#000000";
-//static const char col_gray2[]       = "#555555";
-//static const char col_gray3[]       = "#ffffff";
-//static const char col_gray4[]       = "#f32323";
-//static const char col_cyan[]        = "#000000";
-//static const char col_cyan2[]       = "#ff0000";
-//static const char *colors[][3]      = {
-////  /* simple red/black scheme }}} */
+//  /* simple red/black scheme {{{ */
+static const char col_gray1[]       = "#000000";
+static const char col_gray2[]       = "#555555";
+static const char col_gray3[]       = "#ffffff";
+static const char col_gray4[]       = "#000000";
+static const char col_cyan[]        = "#f32323";
+static const char col_cyan2[]       = "#ff0000";
+static const char *colors[][3]      = {
+//  /* simple red/black scheme }}} */
 
 ////  /* red and black {{{ */
 //static const char col_gray1[]       = "#000000";
@@ -92,15 +92,15 @@ static const char dmenufont[]       =   "Source Code Pro:size=11";
 //static const char col_cyan[]        = "#007acc";
 //static const char *colors[][3]      = {
 ////  /* blue-black }}} */
-//  /* blueandblue {{{ */
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#000000";
-static const char col_gray3[]       = "#ffffff";
-static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#88ccdd";
-static const char col_cyan2[]       = "#4fbbcc";
-static const char *colors[][3]      = {
-//  /* blue-black }}} */
+////  /* blueandblue {{{ */
+//static const char col_gray1[]       = "#000000";
+//static const char col_gray2[]       = "#000000";
+//static const char col_gray3[]       = "#ffffff";
+//static const char col_gray4[]       = "#000000";
+//static const char col_cyan[]        = "#88ccdd";
+//static const char col_cyan2[]       = "#4fbbcc";
+//static const char *colors[][3]      = {
+////  /* blue-black }}} */
 ////  /* pink-black {{{ */
 //static const char col_gray1[]       = "#000000";
 //static const char col_gray2[]       = "#000000";
@@ -126,16 +126,16 @@ static const char *colors[][3]      = {
 //static const char *colors[][3]      = {
 ////  /* b/w }}} */
 
-//// /* color on forground {{{ */
-//	/*               fg         bg         border   */
-//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-//	[SchemeSel]  = { col_cyan2, col_gray4, col_cyan2 },
-//// /* }}} */
-// /* color on background {{{ */
+// /* color on forground {{{ */
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan2,  col_cyan2 },
+	[SchemeSel]  = { col_cyan2, col_gray4, col_cyan2 },
 // /* }}} */
+//// /* color on background {{{ */
+//	/*               fg         bg         border   */
+//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+//	[SchemeSel]  = { col_gray4, col_cyan2,  col_cyan2 },
+//// /* }}} */
 };
 
 static const char *const autostart[] = {
@@ -144,6 +144,7 @@ static const char *const autostart[] = {
 	"sh", "-c", "$HOME/bin/xrate.sh", NULL,
 	"xcompmgr", NULL,
 	"slstatus", NULL,
+	"sh", "-c", "xrdb", "$HOME/.Xresources", NULL,
 	NULL /* terminate */
 };
 
@@ -201,7 +202,7 @@ static const char *scrnlk[]  = { "slock", NULL };
 static const char *flotercmd[]   = { "st", "-t", "Terminal", NULL};
 static const char *browcmd[]     = { "tabbed", "surf", "-e", NULL};
 //
-//static const char *regularcmd[]  = { "sterminal", NULL };
+static const char *regularcmd[]  = { "urxvt", "-e", "bicon", NULL };
 //static const char *tabbedcmd[]   = { "tabbed", "-r", "2" ,"st", "-w", "''", "-t", "sterm", NULL};
 //
 static const char *screenshot[]  = { "sh", "-c", "~/bin/screenshot.sh", NULL};
@@ -225,7 +226,7 @@ static Key keys[] = {
 	{ MODKEY,                 XK_w,         spawn,          {.v = browcmd } },
 	{ MODKEY,                 XK_x,         spawn,          {.v = flotercmd } },
 //	{ MODKEY,                 XK_t,         spawn,          {.v = tabbedcmd } },
-//	{ MODKEY|ControlMask,     XK_t,         spawn,          {.v = regularcmd } },
+	{ MODKEY|ControlMask,     XK_t,         spawn,          {.v = regularcmd } },
 	{ 0,                      XK_Print,     spawn,          {.v = screenshot } },
 	{ MODKEY,                 XK_Print,     spawn,          {.v = shotmenu } },
   /* separator */
